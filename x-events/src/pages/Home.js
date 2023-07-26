@@ -1,49 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import EventList from '../components/EventList';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import EventCard from '../components/EventCard';
+// import EventForm from '../components/EventForm';
 
-const events = [
-    {
-      id: 1,
-      title: 'WRC',
-      description: 'Rally in Naivasha',
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr2LrPs1F9_AA9ExgzJN4HmOOCAQv9hxDClQ&usqp=CAU', 
-    },
-    {
-      id: 2,
-      title: 'Koroga Festival',
-      description: 'Capital FM music concert',
-      imageUrl: 'https://nairobinow.files.wordpress.com/2020/02/koroga-festival-final.jpg', 
-    },
-  ];
-  
-  const Home = () => {
-    const [events, setEvents] = useState([]);
-  
-    useEffect(() => {
-      // Fetch events from the backend when the component mounts
-      fetch('http://localhost:9292/events')
-        .then((response) => response.json())
-        .then((data) => setEvents(data))
-        .catch((error) => console.error('Error fetching events:', error));
-    }, []);
-    return (
-      <div>
-        <h1>Upcoming Events</h1>
-        <div className="event-list">
-          {events.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
-        </div>
-        <div>
-      <h1>Events App</h1>
-      <EventList />
-    </div>
+const Home = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    // Fetch events from the backend API when the component mounts
+    axios.get('http://localhost:9292/events')
+      .then((response) => {
+        setEvents(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching events:', error);
+      });
+  }, []);
+
+  // const handleEventCreated = (newEvent) => {
+  //   // Update the list of events with the new event
+  //   setEvents((prevEvents) => [...prevEvents, newEvent]);
+  // };
+
+  return (
+    <div className="home-page">
+      <h1>Upcoming Events</h1>
+      <div className="event-list">
+        {events.map((event) => (
+          <EventCard key={event.id} event={event} />
+        ))}
       </div>
-    );
-  };
-
-
+    </div>
+  );
+};
 
 export default Home;
-

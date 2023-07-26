@@ -22,8 +22,8 @@ const App = () => {
         {/* Use Routes instead of Route */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/add-event" element={<AddEvent />} />
+          <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/edit-event/:id" element={<EditEvent />} />
         </Routes>
       </div>

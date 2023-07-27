@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import axios from 'axios';
+import eventImage from '../images/oscars.jpg';
 
 const EventCard = ({ event, onDelete }) => {
   const [rsvpStatus, setRsvpStatus] = useState(false);
@@ -21,7 +22,8 @@ const EventCard = ({ event, onDelete }) => {
 
   return (
     <div className="event-card">
-      <img src={event.imageUrl} alt={event.title} />
+     <img src={eventImage} alt="Oscars" />
+
       <h2>{event.title}</h2>
       <p>{event.description}</p>
       <Link to={`/events/${event.id}`} className="view-details-btn">View Details</Link>

@@ -13,6 +13,8 @@ Create a new event by filling out a form.
 Edit an existing event using the edit form.
 Delete an event.
 
+Future plan - To include authentication and implement the RSVP function such that one can RSVP to an event and the event organizers can see all RSVPs.
+
 Setup/ installation
 1. Clone this repository to your local machine:
 https://github.com/StellahIreri/x-events.git

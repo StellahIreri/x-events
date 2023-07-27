@@ -1,34 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
 
-const EventDetails = ({ match }) => {
+const EventDetails = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [event, setEvent] = useState(null);
 
   useEffect(() => {
-    // Fetch the specific event details from the backend API based on the URL parameter (event ID)
-    axios.get(`/events/${match.params.id}`)
+    // Fetch the event details from the backend API using the event ID
+    axios.get(`http://localhost:9292/events/${id}`)
       .then((response) => {
         setEvent(response.data);
       })
       .catch((error) => {
         console.error('Error fetching event details:', error);
       });
-  }, [match.params.id]);
+  }, [id]);
+
+  const handleDelete = () => {
+    // Send a DELETE request to the backend API to delete the event
+    axios.delete(`http://localhost:9292/events/${id}`)
+      .then(() => {
+        // Redirect to the homepage after successful deletion
+        navigate('/events');
+      })
+      .catch((error) => {
+        console.error('Error deleting event:', error);
+      });
+  };
+
+  if (!event) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div>
-      {event ? (
-        <div>
-          <h2>{event.title}</h2>
-          <p>{event.description}</p>
-          <p>Location: {event.location}</p>
-          <p>Start Time: {event.start_time}</p>
-          <p>End Time: {event.end_time}</p>
-          <p>Organizer: {event.organizer}</p>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+    <div className="event-details">
+      <h2>{event.title}</h2>
+      <p>{event.description}</p>
+      <p>Start Time: {new Date(event.start_time).toLocaleString()}</p>
+      <p>End Time: {new Date(event.end_time).toLocaleString()}</p>
+      <p>Location: {event.location}</p>
+      <p>Organizer: {event.organizer}</p>
+      {event.imageUrl && <img src={event.imageUrl} alt={event.title} />}
+      <button onClick={handleDelete}>Delete Event</button>
     </div>
   );
 };

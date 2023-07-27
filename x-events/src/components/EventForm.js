@@ -9,7 +9,7 @@ const EventForm = ({ onEventCreated }) => {
     end_time: '',
     location: '',
     organizer: '',
-    image_url: '',
+    imageUrl: '',
   });
 
   const handleChange = (e) => {
@@ -34,7 +34,7 @@ const EventForm = ({ onEventCreated }) => {
           end_time: '',
           location: '',
           organizer: '',
-          image_url: '',
+          imageUrl: '',
         });
       })
       .catch((error) => {
@@ -65,7 +65,7 @@ const EventForm = ({ onEventCreated }) => {
       <input type="text" name="organizer" value={formData.organizer} onChange={handleChange} required />
 
       <label>Image URL:</label>
-      <input type="text" name="image_url" value={formData.image_url} onChange={handleChange} required />
+      <input type="text" name="imageUrl" value={formData.imageUrl} onChange={handleChange} required />
 
       <button type="submit">Create Event</button>
     </form>

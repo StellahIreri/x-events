@@ -21,14 +21,16 @@ const Home = () => {
   //   // Update the list of events with the new event
   //   setEvents((prevEvents) => [...prevEvents, newEvent]);
   // };
-
+  const handleEventDeleted = (deletedEventId) => {
+    setEvents((prevEvents) => prevEvents.filter((event) => event.id !== deletedEventId));
+  };
   return (
     <div className="home-page">
       <h1>Upcoming Events</h1>
       <div className="event-list">
         {events.map((event) => (
-          <EventCard key={event.id} event={event} />
-        ))}
+          <EventCard key={event.id} event={event} onDelete={handleEventDeleted} />
+          ))}
       </div>
     </div>
   );

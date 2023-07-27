@@ -4,8 +4,8 @@ import axios from 'axios';
 
 const EventDetails = () => {
   const { id } = useParams();
+
   const [event, setEvent] = useState(null);
-  
 
   useEffect(() => {
     // Fetch the event data based on the event ID

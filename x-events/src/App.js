@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; 
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import EventDetails from './pages/EventDetails';
 import AddEvent from './pages/AddEvent';
@@ -25,6 +25,7 @@ const App = () => {
           <Route path="/add-event" element={<AddEvent />} />
           <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/edit-event/:id" element={<EditEvent />} />
+          <Route path="/events" element={<Home />} />
         </Routes>
       </div>
     </Router>

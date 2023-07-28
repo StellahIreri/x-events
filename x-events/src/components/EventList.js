@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import EventItem from './EventItem';
+import EventItem from './EventDetails';
 
 const EventList = () => {
   const [events, setEvents] = useState([]);

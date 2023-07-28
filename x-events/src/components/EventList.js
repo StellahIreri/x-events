@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axis from 'axios';
 import EventItem from './EventDetails';
 
 const EventList = () => {

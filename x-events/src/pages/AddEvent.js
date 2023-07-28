@@ -7,7 +7,7 @@ const AddEvent = () => {
     // Handle event creation logic here
     console.log('Event created:', newEvent);
     // Redirect to the home page or do any other navigation as needed
-    window.locationhref = '/';
+    window.location.href = '/';
   };
 
   return (

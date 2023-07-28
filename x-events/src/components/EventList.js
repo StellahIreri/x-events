@@ -7,7 +7,7 @@ const EventList = () => {
 
   useEffect(() => {
     // Fetch events from the backend API
-    axios.get('http://localhost:9292/events')
+    axios.get('http://localhost:9292/event')
       .then((response) => {
         setEvents(response.data);
       })

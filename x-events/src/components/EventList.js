@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useStates } from 'react';
 import axios from 'axios';
 import EventItem from './EventDetails';
 

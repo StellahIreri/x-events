@@ -33,7 +33,7 @@ const EventDetails = () => {
   };
 
   if (!event) {
-    return <div>Loading..</div>;
+    return <div>Loading...</div>;
   }
 
   return (

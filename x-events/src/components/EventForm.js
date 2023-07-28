@@ -12,7 +12,7 @@ const EventForm = ({ onEventCreated }) => {
     imageUrl: '',
   });
 
-  const handleChange = (e) => {
+  const handleChanges = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,

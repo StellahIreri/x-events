@@ -14,7 +14,7 @@ const AddEvent = () => {
     <div className="add-event-container">
       <h2>Add Event</h2>
       <div className="add-event-form">
-        <EventForm onEventCreated={handleEvetCreated} />
+        <EventForm onEventCreated={handleEventCreated} />
       </div>
     </div>
   );

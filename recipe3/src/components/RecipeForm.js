@@ -4,8 +4,8 @@ import axios from 'axios';
 const RecipeForm = ({ onRecipeCreated }) => {
   const [formData, setFormData] = useState({
     name: '',
-    ingredients: '',
-    instructions: '',
+  ingredients: '', 
+  instructions: '', 
 
   });
 
@@ -16,16 +16,20 @@ const RecipeForm = ({ onRecipeCreated }) => {
       [name]: value,
     }));
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://127.0.0.1:4000/recipes', formData)
+   
+      console.log('Sending formData:', formData); 
+      axios.post('http://127.0.0.1:4000/recipes', formData)
       .then((response) => {
+        console.log('Recipe created:', response.data); 
         onRecipeCreated(response.data); 
         setFormData({ 
           name: '',
-          ingredients: '',
-          instructions: ''
+          ingredients: '', 
+          instructions: '', 
         });
       })
       .catch((error) => {

@@ -10,7 +10,7 @@ const Kanban = () => {
 
   const fetchRecipes = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/recipes/'); 
+      const response = await axios.get('http://127.0.0.1:4000/recipes'); 
       setRecipes(response.data);
     } catch (error) {
       console.error('Error fetching recipes:', error);
@@ -23,11 +23,7 @@ const Kanban = () => {
         <div key={recipe.id} className="recipe-card">
           <img src={recipe.image_url} alt={recipe.name} />
           <h3>{recipe.name}</h3>
-          {/* <p>{recipe.description}</p>
-          <p>Start Time: {recipe.start_time}</p>
-          <p>End Time: {recipe.end_time}</p>
-          <p>Location: {recipe.location}</p>
-          <p>Organizer: {recipe.organizer}</p> */}
+          
           <button>View</button>
         </div>
       ))}

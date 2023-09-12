@@ -4,7 +4,7 @@ import RecipeForm from './RecipeForm';
 
 const CreateRecipe = () => {
   const handleFormSubmit = (formData) => {
-    axios.post('http://127.0.0.1:4000/recipes/', formData)
+    axios.post('http://127.0.0.1:4000/recipes', formData)
       .then((response) => {
         console.log(response.data); 
         alert('Event created successfully!'); 

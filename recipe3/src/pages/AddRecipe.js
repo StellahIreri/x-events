@@ -1,6 +1,6 @@
 import React from 'react';
 import RecipeForm from '../components/RecipeForm';
-import '/home/stela/recipe3/src/App.css'; // Import the CSS file
+import '/home/stela/recipe3/src/App.css'; 
 
 const AddRecipe = () => {
   const handleRecipeCreated = (newRecipe) => {

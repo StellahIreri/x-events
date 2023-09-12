@@ -6,8 +6,7 @@ const RecipeList = () => {
   const [recipes , setRecipes] = useState([]);
 
   useEffect(() => {
-    // Fetch recipes from the backend API
-    axios.get('http://localhost:4000/recipes')
+    axios.get('http://127.0.0.1:4000/recipes')
       .then((response) => {
         setRecipes(response.data);
       })
